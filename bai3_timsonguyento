@@ -1,9 +1,14 @@
 #include <stdio.h>
 #include<math.h>
 #include <stdbool.h>
+// 
 bool nguuyento(int n);
 int timnguyento(int a[], int n);
-
+//
+// ý tưởng bài toán
+// b1: tìm số nguyên tố
+// b2: quét mảng xem từng phần tử mảng có nào nguyên tố hay không lưu vô mảng phụ
+// quét mảng phụ lấy phần tử cuối cùng nguyên tố
 int timnguyento(int a[],int n)
 {
     int b[10]={0};
@@ -16,10 +21,6 @@ int timnguyento(int a[],int n)
             b[k] = a[i];
             k = k+ 1;
         }
-        // if (nguuyento(a[i])==false)
-        // {
-        //     return -1;
-        // }
     }
     for (int i =0;i<k;i++)
     {
