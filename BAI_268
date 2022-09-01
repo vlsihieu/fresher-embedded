@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+// tìm số chẵn cuối cùng trong mảng 1 chiều
+// đếm số lượng chẵn trong mảng
+// tổng số phần tử chẵn trong mảng
+
+// int index = 0;
+
+
+
+void demsoluong_tong(int p[],int n)
+{
+    int b[10]={0};
+    int dem=0;
+    int index=0;
+    int sum =0;
+    for(int i=0;i<n;i++)
+    {
+        if (p[i]%2==0)
+        {
+            b[index] = p[i];
+            index++;
+            
+        }
+    }
+    if (index ==0) printf("khong co");
+    else if (index>0) printf("so luong:%d\n",index);
+    
+    for(int i=0;i<n;i++)
+    {
+        sum = sum + b[i];
+    }
+    printf("tong =%d\n",sum);
+}
+int timchan(int p[],int n)
+{
+    int b[10]={0};
+    int dem=0;
+    int index=0;
+    for(int i=0;i<n;i++)
+    {
+        if (p[i]%2==0)
+        {
+            b[index] = p[i];
+            index++;
+            // printf("%d\n",index);
+            
+        }
+    }
+    for(int i=0;i<index;i++)
+    {
+        // printf("%d ",b[i]);
+        return b[index-1];
+    }
+    return -1;
+}
+
+
+
+int main()
+{
+    int arr[10]={1,4,6,7,12,3,9,11,98,100};
+    // int arr[10]={1,1,1,1,1,1,1,1,1,1};
+    int kq = timchan(arr,10);
+    printf("%d\n",kq);
+    demsoluong_tong(arr,10);
+    
+
+
+
+
+
+   return 0;
+}
