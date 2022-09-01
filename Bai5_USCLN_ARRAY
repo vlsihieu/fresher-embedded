@@ -1,6 +1,13 @@
 #include <conio.h>
 #include <stdio.h>
 #include <math.h>
+
+//ý tưởng bài toán
+// tìm ước chung lớn nhất hai số a,b thuật toán đệ quy
+// viết hàm tìm uscln của mảng, kiểm tra xem mảng có bao nhiêu
+// phẩn tử nếu là 1 thì usln là chính nó, còn khác 1 gán phần tử 
+// đầu tiên cho biến temp, ta lấy biến temp đi so sánh index từ
+// 1 -> n. tìm ra ước số chung lớn nhất
 #define max 100
 //nhap vao mang 1 chieu
 void NhapMang(int a[], unsigned int n)
