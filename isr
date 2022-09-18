@@ -7,7 +7,7 @@
 #define LED_BLUE 	PTD0
 #define LED_RED 	PTD15
 #define LED_GREEN 	PTD16
-// define pin btn isr 
+
 #define PTC12 		12
 #define PTC13 		13
 #define BTN1 		PTC12
@@ -27,16 +27,17 @@
 
 // Flag for BTN
 uint8_t CountBTN2 = 0;
+uint8_t tg=0;
 uint8_t CountBTN1 = 0;
 // Time line LPIT0
 uint8_t Time_Line_LPIT0 		= 0;
-uint8_t Tem_Time_line_LPIT0 	= 0;
+uint8_t timePress1 	= 0;
 
 // prototype function
 void LPIT0_init (void);
 void NVIC_Init();
 void PORT_Init();
-void LED_RGB_TIM(uint8_t Time);
+void LED_RGB_AUTO(uint8_t Time);
 void LED_RGB(uint8_t StateRGB);
 void LED_ON(uint8_t LED_state);
 
@@ -171,22 +172,23 @@ void LED_RGB_AUTO(uint8_t Time)
 
 	if(Time == Time_LED*15)
     {
+		tg = Time;
 		LED_ON(RED_ON);
         if (CountBTN2 == 1)
         {
-            timePress1=Time;
+            timePress1=tg;
             while (1)
             {
-                //  
+                //
                 if (CountBTN2 == 2)
                 {
                     break;
                 }
                 /* code */
             }
-                
+
         }
-        if (timePress1>=Time && timePress1<=Time_LED*15)
+        if (timePress1>=tg && timePress1<=Time_LED*15)
         {
             LED_ON(RED_ON);
         }
@@ -196,19 +198,19 @@ void LED_RGB_AUTO(uint8_t Time)
 		LED_ON(GREEN_ON);
         if (CountBTN2 == 1)
         {
-            timePress1=Time;
+            timePress1=tg;
             while (1)
             {
-                //  
+                //
                 if (CountBTN2 == 2)
                 {
                     break;
                 }
                 /* code */
             }
-                
+
         }
-        if (timePress1>=Time && timePress1<=Time_LED*30)
+        if (timePress1>=tg && timePress1<=Time_LED*30)
         {
             LED_ON(GREEN_ON);
         }
@@ -218,22 +220,22 @@ void LED_RGB_AUTO(uint8_t Time)
 		LED_ON(BLUE_ON);
         if (CountBTN2 == 1)
         {
-            timePress1=Time;
+            timePress1=tg;
             while (1)
             {
-                //  
+                //
                 if (CountBTN2 == 2)
                 {
                     break;
                 }
                 /* code */
             }
-                
+
         }
-        if (timePress1>=Time && timePress1 <=Time_LED*45)
+        if (timePress1>=tg && timePress1 <=Time_LED*45)
         {
             LED_ON(BLUE_ON);
         }
     }
-	
+
 }
